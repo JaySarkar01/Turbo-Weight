@@ -28,7 +28,7 @@ const QuoteForm: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="py-12 bg-teal-50"
+      className="py-12 bg-gray-50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Left Content */}
@@ -41,7 +41,7 @@ const QuoteForm: React.FC = () => {
           </h2>
           <p className="text-gray-600 mb-6">
             Reiciendis voluptatibus maiores alias perferendis doloribus asperiores.
-            Provide a few details, and we'll help you get started.
+            Provide a few details, and we&apos;ll help you get started.
           </p>
         </div>
 

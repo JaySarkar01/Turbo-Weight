@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const WhyBetter: React.FC = () => {
+const WhyChooseUs: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,10 +28,10 @@ const WhyBetter: React.FC = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full overflow-hidden py-20 bg-black"
+      className="relative w-full overflow-hidden py-20 backdrop-blur-[3px]"
       style={{ 
-        backgroundImage: "url('/OIP.jfif')", 
-        backgroundPosition: "right", 
+        backgroundImage: "url('/bg2.jpeg')", 
+        backgroundPosition: "center", 
         backgroundRepeat: "no-repeat", 
         backgroundSize: "cover" 
       }}
@@ -39,41 +39,46 @@ const WhyBetter: React.FC = () => {
       {/* Dark overlay for better text visibility */}
       <div className="absolute inset-0 bg-black/40 z-0"></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
-          {/* Left Column - Main Content */}
-          <div className="anim flex flex-col space-y-6 max-w-xl text-center lg:text-left">
-            <p className="text-teal-400 text-sm font-semibold uppercase">Why Choose Us</p>
-            <h2 className="text-4xl font-bold text-white">
-              Why We're Better than Others
-            </h2>
-            <p className="text-gray-300">
-              Nuisruam est qui dolorem ipsum quia dolor sit amet adipisci velit, sed nuia non numuam.
-            </p>
-            <button className="bg-teal-600 text-white px-6 py-3 rounded hover:bg-teal-700 transition w-fit mx-auto lg:mx-0">
-              Get Started
-            </button>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10 text-center">
+        <div className="anim flex flex-col items-center">
+          <p className="text-teal-400 text-lg font-bold uppercase mb-4 tracking-wider">Why Choose Us</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
+            Quality Control & Precision in Measurement
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8 text-left w-full">
+            <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm anim">
+              <h3 className="text-xl font-bold text-teal-400 mb-4">Our Quality Commitment</h3>
+              <p className="text-white mb-4">
+                Strict Quality Control System with 100% Satisfaction Guarantee
+              </p>
+              <p className="text-white">
+                Skilled Professionals & Accurate Testing Methods ensure precision in every measurement.
+              </p>
+            </div>
+
+            <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm anim">
+              <h3 className="text-xl font-bold text-teal-400 mb-4">The Importance of Metrology</h3>
+              <p className="text-white">
+                Metrology, the science of measurement, plays an important role in our daily lives and society. A precise and reliable measurement system can influence people&apos;s decisions and even shape their perspectives.
+              </p>
+            </div>
           </div>
 
-          {/* Right Column - Stats (single row) */}
-          <div className="anim flex gap-12">
-            <div className="text-center">
-              <span className="block text-4xl font-bold text-white">95+</span>
-              <span className="text-sm text-gray-300">Awards Win</span>
-            </div>
-            <div className="text-center">
-              <span className="block text-4xl font-bold text-white">320+</span>
-              <span className="text-sm text-gray-300">Insurance Policies</span>
-            </div>
-            <div className="text-center">
-              <span className="block text-4xl font-bold text-white">100%</span>
-              <span className="text-sm text-gray-300">Satisfied Customers</span>
-            </div>
+          <div className="mt-8 bg-white/10 p-6 rounded-lg backdrop-blur-sm anim w-full max-w-3xl">
+            <h3 className="text-xl font-semibold text-teal-400 mb-4">Measurement Impact</h3>
+            <p className="text-white">
+              Accurate measurements are crucial for a country&apos;s economy, helping to increase revenue in different industries and reduce financial losses in areas where weighing is essential. Many people do not realize that measurement accuracy affects not only industries but also everyday activities. Maintaining the right level of precision ensures efficiency and fairness across various sectors.
+            </p>
           </div>
+
+          <button className="mt-12 bg-teal-400 hover:bg-teal-400 text-white px-8 py-3 rounded-lg transition-all duration-300 anim">
+            Get Started With Us
+          </button>
         </div>
       </div>
     </section>
   );
 };
 
-export default WhyBetter;
+export default WhyChooseUs;

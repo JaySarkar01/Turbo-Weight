@@ -2,6 +2,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,11 +61,8 @@ const FaqSection: React.FC = () => {
       {/* Image - comes first in mobile (due to flex-col), then on right in desktop (due to md:flex-row) */}
       <div className="w-full md:w-1/2 mb-8 md:mb-0 md:ml-8 order-1 md:order-2 flex justify-center">
         <div className="relative w-full max-w-sm md:max-w-none">
-          <img
-            src="/OIP.jfif"
-            alt="Happy Family"
-            className="rounded-lg shadow-md w-full h-auto object-cover"
-          />
+        <Image src="/OIP.jfif" alt="Happy Family" width={500} height={300} className="rounded-lg shadow-md w-full h-auto object-cover" />
+        
         </div>
       </div>
   
@@ -72,7 +70,7 @@ const FaqSection: React.FC = () => {
       <div className="w-full md:w-1/2 order-2 md:order-1">
         {/* Small Title */}
         <p className="text-teal-600 text-sm font-semibold uppercase mb-2 text-center md:text-left">
-          FAQ's
+          FAQ&apos;s
         </p>
         {/* Main Title */}
         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 text-center md:text-left">

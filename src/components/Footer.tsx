@@ -131,12 +131,12 @@ const Footer: React.FC = () => {
           <div className="space-y-4" ref={newsletterRef}>
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 bg-teal-600 rounded-lg flex items-center justify-center animate-pulse">
-                <span className="text-white font-bold text-xl">I</span>
+                <span className="text-white font-bold text-xl">TW</span>
               </div>
-              <h2 className="text-2xl text-white font-bold">Insureity</h2>
+              <h2 className="text-2xl text-white font-bold">Turbo Weightronic</h2>
             </div>
             <p className="text-gray-400 leading-relaxed">
-              Your trusted partner for comprehensive insurance solutions. We provide tailored coverage to protect what matters most to you.
+            Turbo Weightronics makes weighing easy and accurate with top-quality weighbridges, load cells, and industrial weighing systems. We focus on reliability, precision, and great service! 
             </p>
           </div>
 
@@ -144,10 +144,10 @@ const Footer: React.FC = () => {
           <div ref={quickLinksRef}>
             <h3 className="text-white text-lg font-semibold mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              {['Home', 'About', 'Services', 'Pricing', 'Blog', 'Contact'].map((item) => (
+              {['Home', 'AboutUS', 'Products','Contact'].map((item) => (
                 <li key={item}>
                   <a
-                    href="#"
+                    href={`#${item.toLowerCase()}`}
                     className="text-gray-400 hover:text-teal-400 transition-colors duration-200 flex items-start group"
                   >
                     <span className="mr-2 text-teal-500 group-hover:translate-x-1 transition-transform">•</span>
@@ -174,7 +174,7 @@ const Footer: React.FC = () => {
                 </svg>
                 <div>
                   <p className="font-medium">Phone</p>
-                  <p>+61 3 8376 6284</p>
+                  <p>+91 9837043672</p>
                 </div>
               </li>
               <li className="flex items-start hover:text-white transition-colors">
@@ -189,7 +189,7 @@ const Footer: React.FC = () => {
                 </svg>
                 <div>
                   <p className="font-medium">Email</p>
-                  <p>info@insureity.com</p>
+                  <p>dilbaghsing@turbo.com</p>
                 </div>
               </li>
               <li className="flex items-start hover:text-white transition-colors">
@@ -205,7 +205,8 @@ const Footer: React.FC = () => {
                 </svg>
                 <div>
                   <p className="font-medium">Address</p>
-                  <p>7 King Street, Melbourne, 3000, Australia</p>
+                  <p>7 H no 169, visharatnagar bilaspur dist-Rampur U.P.
+                  postcode-244921</p>
                 </div>
               </li>
             </ul>
@@ -224,7 +225,7 @@ const Footer: React.FC = () => {
                 <a
                   key={social.name}
                   href="#"
-                  className="text-gray-400 hover:text-teal-400 transition-colors duration-200 bg-gray-800 p-2 rounded-full hover:bg-gray-700 hover:scale-110 transition-transform"
+                  className="text-gray-400 hover:text-teal-400 duration-200 bg-gray-800 p-2 rounded-full hover:bg-gray-700 hover:scale-110 transition-transform"
                   aria-label={social.name}
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

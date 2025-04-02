@@ -1,61 +1,86 @@
 'use client'
 import React, { useRef, useEffect } from 'react';
+import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface ServiceItem {
+interface ProductItem {
   id: number;
   title: string;
   description: string;
-  icon: string;
+  image: string;
 }
 
-const servicesData: ServiceItem[] = [
+const productsData: ProductItem[] = [
   {
     id: 1,
-    title: 'Health Insurance',
-    description: 'Ensure your family’s health and well-being with our extensive medical coverage.',
-    icon: '/icons/health.svg', // Replace with your icon path
+    title: 'Concrete Weighbridges',
+    description: 'Built for heavy-duty use, our concrete weighbridges offer unmatched stability and long-lasting performance. Perfect for industries that need a permanent, low-maintenance weighing solution.',
+    image: '/concretcell.jpeg',
   },
   {
     id: 2,
-    title: 'Homeowners Insurance',
-    description: 'Protect your family and valuable assets from potential home-related damages.',
-    icon: '/icons/home.svg', // Replace with your icon path
+    title: 'Steel Weighbridges',
+    description: 'Need flexibility? Our steel weighbridges are lightweight, easy to install, and ideal for industries that require quick setup and relocation. Strong, reliable, and built to handle high loads.',
+    image: '/steel.jpeg',
   },
   {
     id: 3,
-    title: 'Auto Insurance',
-    description: 'Keep your family safe on the road with flexible insurance coverage options.',
-    icon: '/icons/auto.svg', // Replace with your icon path
+    title: 'Industrial Weighing',
+    description: 'From manufacturing to logistics, we provide advanced weighing systems tailored for industrial use. Our solutions ensure precise measurements, helping businesses maintain efficiency and accuracy.',
+    image: '/steel_b.jpeg',
   },
   {
     id: 4,
-    title: 'Life Insurance',
-    description: 'Plan for your family’s future with financial security and peace of mind.',
-    icon: '/icons/life.svg', // Replace with your icon path
+    title: 'Portable Axle Pads',
+    description: 'For on-the-go weighing, our portable axle pads are the perfect choice. Easy to transport and set up, they provide quick and accurate axle weight measurements, ideal for transport and construction industries.',
+    image: '/portable_axel.jpeg',
   },
   {
     id: 5,
-    title: 'Umbrella Insurance',
-    description: 'Extend your family’s protection beyond standard coverage with added liability.',
-    icon: '/icons/umbrella.svg', // Replace with your icon path
+    title: 'Load Cells',
+    description: 'The heart of any weighing system! Our high-precision load cells ensure reliable and accurate weight readings, whether used in weighbridges, industrial scales, or custom applications.',
+    image: '/load_Cell.jpeg',
   },
   {
     id: 6,
-    title: 'Family Package Plans',
-    description: 'Bundle your insurance needs to save money and simplify your coverage.',
-    icon: '/icons/family.svg', // Replace with your icon path
+    title: 'Remote Displays & Printers',
+    description: 'Stay updated with real-time weight readings using our remote displays. Plus, our high-speed printers allow instant documentation of weight records, making data tracking seamless and efficient.',
+    image: '/rdp.jpeg',
   },
+  {
+    id: 7,
+    title: 'Apalto Intelligent Terminal',
+    description: 'Advanced weighing terminal with intuitive interface and robust data management capabilities for precise weight monitoring and reporting.',
+    image: '/aplato_terminal.jpeg',
+  },
+  {
+    id: 8,
+    title: 'Turbo Intelligent Terminal',
+    description: 'High-performance terminal offering fast processing, multiple communication interfaces, and user-friendly operation for demanding weighing applications.',
+    image: '/Turbo_intelligent_terminal.jpeg',
+  },
+  {
+    id: 9,
+    title: 'Weight Indicator',
+    description: 'Digital indicators providing clear, accurate weight readings with customizable displays for various industrial weighing applications.',
+    image: '/Indicater.jpeg',
+  },
+  {
+    id: 10,
+    title: 'Pit-less Weighbridge',
+    description: 'Surface-mounted weighbridge solution requiring no civil construction, offering easy installation and maintenance with full weighing accuracy.',
+    image: '/Pit less weight bridge.jpeg',
+  }
 ];
 
-const InsuranceServices: React.FC = () => {
+const WeightronicsProducts: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
   const cardRefs = useRef<HTMLDivElement[]>([]);
 
-  // Attach refs to each card for GSAP
   const addToCardRefs = (el: HTMLDivElement) => {
     if (el && !cardRefs.current.includes(el)) {
       cardRefs.current.push(el);
@@ -63,85 +88,93 @@ const InsuranceServices: React.FC = () => {
   };
 
   useEffect(() => {
-    // Animate cards when they enter the viewport
-    gsap.from(cardRefs.current, {
+    gsap.from(titleRef.current, {
       scrollTrigger: {
-        trigger: sectionRef.current, 
+        trigger: sectionRef.current,
         start: 'top 80%',
-        toggleActions: 'play reverse play reverse',
       },
-      y: 50,
       opacity: 0,
+      y: 30,
       duration: 0.8,
-      stagger: 0.2,
       ease: 'power3.out',
+    });
+
+    cardRefs.current.forEach((card, index) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 75%',
+        },
+        opacity: 0,
+        y: 50,
+        duration: 0.6,
+        delay: index * 0.1,
+        ease: 'back.out(1.2)',
+      });
+
+      gsap.to(card, {
+        scale: 1.03,
+        boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
+        duration: 0.3,
+        paused: true,
+        ease: 'power1.out',
+      });
+
+      card.addEventListener('mouseenter', () => gsap.to(card, { scale: 1.03, duration: 0.3 }));
+      card.addEventListener('mouseleave', () => gsap.to(card, { scale: 1, duration: 0.3 }));
     });
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="w-full py-12 bg-gray-50"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Heading */}
-        <div className="mb-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
-            Comprehensive Range of Family Insurance Services
+    <section ref={sectionRef} className="w-full py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 md:mb-16 text-center">
+          <h2 ref={titleRef} className="text-3xl md:text-4xl font-bold text-teal-600">
+            Turbo Weightronics Products
           </h2>
+          <div className="mt-4 h-1 w-20 bg-teal-500 mx-auto rounded-full"></div>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {servicesData.map((service) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center gap-8">
+          {productsData.map((product) => (
             <div
-              key={service.id}
+              key={product.id}
               ref={addToCardRefs}
-              className="bg-white rounded-lg shadow p-6 flex flex-col"
+              className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 w-full max-w-md"
             >
-              {/* Icon */}
-              <div className='flex justify-center items-center'>
-              <div className="mb-4 w-12 h-12 flex items-center justify-center bg-teal-100 rounded-full">
-                <img src={service.icon} alt={service.title} className="w-6 h-6" />
-              </div>
-
+              <div className="h-48 md:h-56 overflow-hidden relative">
+                <Image 
+                  src={product.image} 
+                  alt={product.title} 
+                  layout="fill" 
+                  objectFit="cover"
+                  className="transform group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
               
-
-              <div className='flex justify-center items-center flex-col'>
-
-              {/* Title */}
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                {service.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-sm text-gray-600 mb-4  [text-align-last:center]">
-                {service.description}
-              </p>
-
-              {/* Link or Button */}
-              <a
-                href="#"
-                className="mt-auto text-teal-600 hover:text-teal-800 font-semibold text-sm inline-flex items-center"
-              >
-                Learn More
-                <svg
-                  className="w-4 h-4 ml-1"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
+              <div className="p-6 md:p-7">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-3">
+                  {product.title}
+                </h3>
+                <p className="text-gray-600 mb-5 leading-relaxed">
+                  {product.description}
+                </p>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center text-teal-600 hover:text-teal-800 font-medium transition-colors duration-200"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </a>
-            </div>
-            
+                  Contact
+                  <svg
+                    className="w-4 h-4 ml-2"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
             </div>
           ))}
         </div>
@@ -150,4 +183,4 @@ const InsuranceServices: React.FC = () => {
   );
 };
 
-export default InsuranceServices;
+export default WeightronicsProducts;

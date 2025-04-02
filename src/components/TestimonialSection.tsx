@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -117,7 +118,7 @@ const TestimonialsSection: React.FC = () => {
         
         {/* Testimonial Text */}
         <blockquote className="text-gray-600 italic max-w-2xl mx-auto mb-6">
-          "{currentTestimonial.quote}"
+        &ldquo;{currentTestimonial.quote}&rdquo;
         </blockquote>
         
         {/* Client Info */}
@@ -154,7 +155,9 @@ const TestimonialsSection: React.FC = () => {
                 className={`focus:outline-none transition-all duration-300 ${activeAvatar === index ? 'ring-2 ring-teal-500 transform scale-110' : ''}`}
               >
                 <div className="overflow-hidden rounded-full">
-                  <img
+                  <Image
+                  width={0}
+                  height={0}
                     src={testimonial.avatar}
                     alt={`Avatar ${index + 1}`}
                     className={`w-10 h-10 object-cover ${activeAvatar === index ? 'border-teal-500' : 'border-gray-200'}`}

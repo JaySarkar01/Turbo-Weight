@@ -13,20 +13,20 @@ const Navbar = () => {
         
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <Image src="/logo.png" alt="Logo" className="h-8" width={10} height={10}/>
-          <span className="text-xl font-bold text-gray-900">Insurerity</span>
+          <Image src="/logo.png" alt="Logo" className="h-8" width={30} height={10}/>
+          <span className="text-xl text-teal-600 font-bold">Turbo Weightronics</span>
         </Link>
 
         {/* Desktop Nav Links */}
         <div className="hidden md:flex space-x-6">
-          <Link href="/" className="text-gray-700 hover:text-blue-500">Home</Link>
-          <Link href="/about" className="text-gray-700 hover:text-blue-500">About Us</Link>
-          <Link href="/services" className="text-gray-700 hover:text-blue-500">Services</Link>
-          <Link href="/pricing" className="text-gray-700 hover:text-blue-500">Pricing</Link>
+          <Link href="#" className="text-gray-700 hover:text-blue-500">Home</Link>
+          <Link href="#aboutus" className="text-gray-700 hover:text-blue-500">About Us</Link>
+          <Link href="#products" className="text-gray-700 hover:text-blue-500">Services</Link>
+          <Link href="#contact" className="text-gray-700 hover:text-blue-500">Contact</Link>
         </div>
 
         {/* Contact Us Button */}
-        <Link href="/contact" className="hidden md:block bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-700">
+        <Link href="#contact" className="hidden md:block bg-teal-600 text-white px-5 py-2 rounded-md hover:bg-blue-700">
           Contact Us →
         </Link>
 
@@ -39,11 +39,11 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-white shadow-lg">
-          <Link href="/" className="block px-6 py-3 text-gray-700 hover:bg-gray-100">Home</Link>
-          <Link href="/about" className="block px-6 py-3 text-gray-700 hover:bg-gray-100">About Us</Link>
-          <Link href="/services" className="block px-6 py-3 text-gray-700 hover:bg-gray-100">Services</Link>
-          <Link href="/pricing" className="block px-6 py-3 text-gray-700 hover:bg-gray-100">Pricing</Link>
-          <Link href="/contact" className="block px-6 py-3 text-white bg-blue-600 hover:bg-blue-700">Contact Us</Link>
+          <Link href="#" className="block px-6 py-3 text-gray-700 hover:bg-gray-100">Home</Link>
+          <Link href="#aboutus" className="block px-6 py-3 text-gray-700 hover:bg-gray-100">About Us</Link>
+          <Link href="#products" className="block px-6 py-3 text-gray-700 hover:bg-gray-100">Services</Link>
+          {/* <Link href="#" className="block px-6 py-3 text-gray-700 hover:bg-gray-100">Pricing</Link> */}
+          <Link href="#contact" className="block px-6 py-3 text-white bg-teal-600 hover:bg-teal-700">Contact Us</Link>
         </div>
       )}
     </nav>
