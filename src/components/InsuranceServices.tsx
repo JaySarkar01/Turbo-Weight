@@ -42,7 +42,7 @@ const productsData: ProductItem[] = [
     id: 5,
     title: 'Load Cells',
     description: 'The heart of any weighing system! Our high-precision load cells ensure reliable and accurate weight readings, whether used in weighbridges, industrial scales, or custom applications.',
-    image: '/load_Cell.jpeg',
+    image: '/1.jpeg',
   },
   {
     id: 6,
