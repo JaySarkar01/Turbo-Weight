@@ -102,7 +102,7 @@ const AboutUs = () => {
               <span className="text-teal-600 font-bold">Turbo Weightronics</span> Industries
             </h3>
             <p className="text-gray-600 text-base leading-relaxed">
-              Leading Manufacturer, Exporter, Supplier & Service Provider of
+              Leading Manufacturer, Exporter, Supplier And Service Provider of
               Standard Weights & Calibration Services. Since 1999, we have been 
               engaged in manufacturing weights and mass standards, becoming the
               premier company in the metrology industry.
